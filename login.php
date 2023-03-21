@@ -40,13 +40,13 @@ include "inc/koneksi.php";
       <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
         <div class="panel panel-primary login-shadow">
           <div class="panel-body">
-            <img src="assets/img/tittle.png" class="user-image img-responsive" />
+            <img src="https://ppid.dephub.go.id/informasi_serta_merta.png" class="user-image img-responsive" />
             <center>
               <h2>
-                <b>SI PENJALU</b>
+                <b>Sistem Informasi Laporan Fasilitas</b>
               </h2>
             </center>
-            <CENTER>Sistem Informasi Pengaduan Penerangan Jalan Umum</CENTER>
+            <CENTER>Sistem Informasi Laporan Fasilitas</CENTER>
             <form action="" method="POST" enctype="multipart/form-data">
             <br />
 							<div class="form-group input-group">
@@ -66,7 +66,7 @@ include "inc/koneksi.php";
               <br>
               <br>
               <!-- <CENTER>Belum Punya Akun? <a href="signup">Sign Up</a></CENTER> -->
-              <CENTER>SI PENJALU 2021</CENTER>
+              <CENTER>Aplikasi Magang 2023</CENTER>
             </form>
           </div>
         </div>
