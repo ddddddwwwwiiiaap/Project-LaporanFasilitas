@@ -275,6 +275,7 @@ include "inc/koneksi.php";
                     include "admin/aduan/adu_ubah.php";
                     break;
 
+
 									//telegram
                   case 'telegram':
                     include "admin/telegram/telegram.php";
@@ -287,6 +288,11 @@ include "inc/koneksi.php";
                   case 'logout':
                     include "logout.php";
                     break;
+
+					//laporan
+					case 'laporan':
+						include "admin/laporan/laporan.php";
+						break;
 
 									//aduan
                   case 'aduan_view':
