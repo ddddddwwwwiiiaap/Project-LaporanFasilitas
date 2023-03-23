@@ -64,22 +64,21 @@
             <?php } ?>
 
             <td>
-
               <a href="?page=aduan_kelola&kode=<?php echo $data['id_pengaduan']; ?>" title="Tanggapi" class="btn btn-primary btn-sm">
                 <i class="glyphicon glyphicon-check"></i>
               </a>
-
-              <a href="export_excel.php?id=<?php echo $data['id_pengaduan']; ?>" title="Export" class="btn btn-success btn-sm">
-                <i class="glyphicon glyphicon-export"></i>
-
             </td>
 
             </tr>
 
-          <?php
-          }
-          ?>
+          <?php } ?>
         </tbody>
+
+      </table>
+      <tr>
+      <a href="export.php?kode=<?php echo $data['id_pengaduan']; ?>" class="btn btn-success" target="_blank">Export</a>
+      </tr>
     </div>
+
   </div>
 </div>

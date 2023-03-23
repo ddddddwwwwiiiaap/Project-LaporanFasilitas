@@ -1,6 +1,7 @@
 <?php
 //import koneksi ke database
 include "inc/koneksi.php";
+
 ?>
 <html>
 <head>
@@ -21,53 +22,47 @@ include "inc/koneksi.php";
 			<h4>(Inventory)</h4>
 				<div class="data-tables datatable-dark">
 					<table id="mauexport" class="text-center">
+
+						
 						<thead class="text-capitalize">
 							<tr>
 								<th>No</th>
-								<th>Nama</th>
-								<th>Jenis</th>
-								<th>Alamat</th>
+								<th>Judul</th>
+								<th>No Telpon</th>
 								<th>Foto</th>
-								<th>status</th>
-								<th>Aksi</th>
+								<th>Status</th>
+								<th>Alamat</th>
+								<th>Keterangan</th>
+								<th>Jenis</th>
 							</tr>
 						</thead>
 						<tbody>
 							<?php
 							$no = 1;
-							$sql = $koneksi->query("select a.id_pengaduan, a.judul, a.alamat, a.foto, a.status, j.jenis
-							from tb_pengaduan a join tb_jenis j on a.jenis=j.id_jenis");
-							while ($data = $sql->fetch_assoc()) {
-							?>
-								<tr>
-									<td>
-										<?php echo $no++; ?>
-									</td>
-									<td>
-										<?php echo $data['judul']; ?>
-									</td>
-									<td>
-										<?php echo $data['jenis']; ?>
-									</td>
-									<td>
-										<?php echo $data['alamat']; ?>
-									</td>
-									<td>
-										<img src="images/<?php echo $data['foto']; ?>" width="100" height="100">
-									</td>
-									<td>
-										<?php echo $data['status']; ?>
-									</td>
-									<td>
-										<a href="?page=detail_pengaduan&id=<?php echo $data['id_pengaduan']; ?>" title="Detail" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-list"></i></a>
-									</td>
-								</tr>
+							if (isset($_GET['kode'])) {
+								$sql_cek = "select a.id_pengaduan, a.judul,a.no_telpon, a.foto, a.status,a.alamat, a.keterangan, j.id_jenis, j.jenis 
+								  from tb_pengaduan a join tb_jenis j on a.jenis=j.id_jenis where id_pengaduan='" . $_GET['kode'] . "'";
+								$query_cek = mysqli_query($koneksi, $sql_cek);
+								while ($data_cek = mysqli_fetch_array($query_cek)) {
+									?>
+									<tr>
+										<td><?php echo $no; ?></td>
+										<td><?php echo $data_cek['judul']; ?></td>
+										<td><?php echo $data_cek['no_telpon']; ?></td>
+										<td><img src="foto/<?php echo $data_cek['foto']; ?>" width="100px" onClick="window.open(this.src)" role="button" tabIndex="0"></td>
+										<td><?php echo $data_cek['status']; ?></td>
+										<td><?php echo $data_cek['alamat']; ?></td>
+										<td><?php echo $data_cek['keterangan']; ?></td>
+										<td><?php echo $data_cek['jenis']; ?></td>
+									</tr>
 							<?php
+									$no++;
+								}
 							}
 							?>
 						</tbody>
 					</table>
-				</div>
+
 </div>
 	
 <script>

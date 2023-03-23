@@ -99,14 +99,13 @@ from tb_pengaduan a join tb_jenis j on a.jenis=j.id_jenis where a.jenis='$jenis'
 									<?php echo $data['alamat']; ?>
 								</td>
 								<td>
-									<img src="images/<?php echo $data['foto']; ?>" width="100" height="100">
+								<img src="foto/<?php echo $data['foto']; ?>" width="100px" onClick="window.open(this.src)" role="button" tabIndex="0" />
 								</td>
 								<td>
 									<?php echo $data['status']; ?>
 								</td>
 								<td>
-									
-									<a href="export_excel.php?id=<?php echo $data['id_pengaduan']; ?>" type="submit" name="cetak" value="Cetak" class="btn btn-primary">Cetak</a>
+									<a href="export_excel.php?kode=<?php echo $data['id_pengaduan']; ?>" class="btn btn-success" target="_blank">Export</a>
 								</td>
 							</tr>
 						<?php
