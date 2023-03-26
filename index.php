@@ -45,21 +45,21 @@ include "inc/koneksi.php";
 
 <body>
 	<div id="wrapper">
-		<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+		<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0; background-color: #014a94">
+			<div class="navbar-header" style="height: 100; background-color: #014a94">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse" style="margin-top: 1px;">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="dashboard.php" class="navbar-brand">
+				<a href="dashboard.php" class="navbar-brand" style="font-size: 20px; background-color: #014a94">
 					<i class="glyphicon glyphicon-send"></i>LAPORAN</a>
 			</div>
 			<div style="color: white;
                 padding: 15px 50px 5px 50px;
                 float: right;
-                font-size: 16px;">
+                font-size: 14px;">
 				<?= $data_nama; ?>|
 				<?= $data_level; ?>
 				<a href="logout.php" onclick="return confirm('Apakah anda yakin ingin keluar dari aplikasi ini ?')" class="btn btn-danger square-btn-adjust">Keluar</a>
