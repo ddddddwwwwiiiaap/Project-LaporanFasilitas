@@ -79,13 +79,13 @@ include "inc/koneksi.php";
 					?>
 
 						<li>
-							<a href="?page=admin-def">
+							<a href="?page=admin-def" style="padding: 10px 5px;">
 								<i class="fa fa-dashboard fa-2x"></i> DASHBOARD</a>
 						</li>
 
 						<li>
-							<a href="#">
-								<i class="fa fa-file fa-2x"></i> MASTER DATA
+							<a href="#" style="padding: 10px 5px;">
+								<i class="fa fa-file fa-2x" ></i> MASTER DATA
 								<span class="fa arrow"></span>
 							</a>
 							<ul class="nav nav-second-level">
@@ -99,7 +99,7 @@ include "inc/koneksi.php";
 						</li>
 
 						<li>
-							<a href="#">
+							<a href="#"style="padding: 10px 5px;">
 								<i class="fa fa-bell fa-2x"></i> PENGADUAN
 								<span class="fa arrow"></span>
 							</a>
@@ -117,18 +117,18 @@ include "inc/koneksi.php";
 						</li>
 
 						<li>
-							<a href="?page=laporan">
+							<a href="?page=laporan" style="padding: 10px 5px;">
 								<i class="fa fa-print fa-2x"></i> LAPORAN
 							</a>
 						</li>
 
 						<li>
-							<a href="?page=telegram">
+							<a href="?page=telegram" style="padding: 10px 5px;">
 								<i class="fa fa-comments-o fa-2x"></i> TELEGRAM</a>
 						</li>
 
 						<li>
-							<a href="?page=user_data">
+							<a href="?page=user_data" style="padding: 10px 5px;">
 								<i class="fa fa-user fa-2x"></i> PENGGUNA</a>
 						</li>
 
@@ -138,11 +138,11 @@ include "inc/koneksi.php";
 					} elseif ($data_level == "Petugas") {
 					?>
 						<li>
-							<a href="?page=petugas-def">
+							<a href="?page=petugas-def" style="padding: 10px 5px;">
 								<i class="fa fa-dashboard fa-2x"></i>DASHBOARD</a>
 						</li>
 						<li>
-							<a href="#">
+							<a href="#"style="padding: 10px 5px;">
 								<i class="fa fa-bell fa-2x"></i> PENGADUAN
 								<span class="fa arrow"></span>
 							</a>
@@ -160,7 +160,7 @@ include "inc/koneksi.php";
 						</li>
 
 						<li>
-							<a href="?page=laporan">
+							<a href="?page=laporan" style="padding: 10px 5px;">
 								<i class="fa fa-print fa-2x"></i> LAPORAN
 							</a>
 						</li>
@@ -170,13 +170,13 @@ include "inc/koneksi.php";
 					?>
 
 						<li>
-							<a href="?page=pengadu">
+							<a href="?page=pengadu" style="padding: 10px 5px;">
 								<i class="fa fa-dashboard fa-2x"></i> DASHBOARD</a>
 						</li>
 
 
 						<li>
-							<a href="?page=aduan_view">
+							<a href="?page=aduan_view" style="padding: 10px 5px;">
 								<i class="fa fa-bell fa-2x"></i> PENGADUAN
 							</a>
 						</li>

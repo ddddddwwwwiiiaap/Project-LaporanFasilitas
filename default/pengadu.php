@@ -18,22 +18,22 @@ while ($data = $sql->fetch_assoc()) {
 <hr>
 <div>
 	<center>
-		<h1>Selamat Datang,
+		<h3>Selamat Datang,
 			<?= $data_nama ?> -
 			<?= $data_level ?>
-		</h1>
+		</h3>
 	</center>
 </div>
 <hr>
 <div class="col-md-3 col-sm-6 col-xs-6">
 	<div class="panel panel-back noti-box">
-		<span class="icon-box bg-color-red set-icon">
+		<span class="icon-box bg-color-red set-icon" style="display: block; float: left; margin: 0px 10px 10px 0px; width: 60px; height: 60px; line-height: 65px; text-align: center; font-size: 25px;">
 			<i class="fa fa-bell"></i>
 		</span>
 		<div class="text-box">
-			<h1>
+			<h3>
 				<?= $proses; ?>
-			</h1>
+			</h3>
 			<p>Pengaduan Menunggu</p>
 
 		</div>
@@ -41,13 +41,13 @@ while ($data = $sql->fetch_assoc()) {
 </div>
 <div class="col-md-3 col-sm-6 col-xs-6">
 	<div class="panel panel-back noti-box">
-		<span class="icon-box bg-color-green set-icon">
+		<span class="icon-box bg-color-green set-icon" style="display: block; float: left; margin: 0px 10px 10px 0px; width: 60px; height: 60px; line-height: 65px; text-align: center; font-size: 25px;">
 			<i class="fa fa-bell"></i>
 		</span>
 		<div class="text-box">
-			<h1>
+			<h3>
 				<?= $tangan; ?>
-			</h1>
+			</h3>
 			<p>Pengaduan Ditanggapi</p>
 
 		</div>
@@ -55,13 +55,13 @@ while ($data = $sql->fetch_assoc()) {
 </div>
 <div class="col-md-3 col-sm-6 col-xs-6">
 	<div class="panel panel-back noti-box">
-		<span class="icon-box bg-color-blue set-icon">
+		<span class="icon-box bg-color-blue set-icon" style="display: block; float: left; margin: 0px 10px 10px 0px; width: 60px; height: 60px; line-height: 65px; text-align: center; font-size: 25px;">
 			<i class="fa fa-bell"></i>
 		</span>
 		<div class="text-box">
-			<h1>
+			<h3>
 				<?= $sel; ?>
-			</h1>
+			</h3>
 			<p>Pengaduan Selesai</p>
 
 		</div>
@@ -69,13 +69,13 @@ while ($data = $sql->fetch_assoc()) {
 </div>
 <div class="col-md-3 col-sm-6 col-xs-6">
 	<div class="panel panel-back noti-box">
-		<span class="icon-box bg-color-custom set-icon">
+		<span class="icon-box bg-color-custom set-icon" style="display: block; float: left; margin: 0px 10px 10px 0px; width: 60px; height: 60px; line-height: 65px; text-align: center; font-size: 25px;">
 			<a class="fa fa-plus" href="?page=aduan_tambah" style="color:white;"></a>
 		</span>
 		<div class="text-box">
-			<h1>
+			<h3>
 				+
-			</h1>
+			</h3>
 			<p>
 				<a href="?page=aduan_tambah">Tambah Aduan</a>
 			</p>
@@ -107,7 +107,7 @@ while ($data = $sql->fetch_assoc()) {
 <footer>
 	<div class="bg-light py-4">
 		<div class="container text-center">
-			<a href="https://www.instagram.com/arifinza.engr/" target="blank">© 2021 - Arifinza Eska Nugraha</a>
+			<a href="" target="blank">© 2023 - Dwi Aprilya Anggoro Putry & Prizandeva Oktura Rizqy</a>
 		</div>
 	</div>
 </footer>
