@@ -47,7 +47,8 @@ while ($data = $sql->fetch_assoc()) {
           </div>
           <div class="form-group">
             <label>Keterangan</label>
-            <textarea class="form-control" name="keterangan" rows="4" placeholder="Keterangan Aduan" required></textarea>
+            <!--pengisian text hanya di batasi 100 karakter-->
+            <textarea class="form-control" name="keterangan" placeholder="Keterangan" maxlength="100" required></textarea>
           </div>
           <div class="form-group">
             <label>Foto</label>

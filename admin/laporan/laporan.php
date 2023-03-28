@@ -42,18 +42,9 @@
 						<label>Status</label>
 						<select name="status" class="form-control">
 							<option value="">- Pilih -</option>
-							<?php
-							// ambil data dari database aduan
-							$query = "select * from tb_pengaduan";
-							$hasil = mysqli_query($koneksi, $query);
-							while ($row = mysqli_fetch_array($hasil)) {
-							?>
-								<option value="<?php echo $row['status'] ?>">
-									<?php echo $row['status'];  ?>
-								</option>
-							<?php
-							}
-							?>
+							<option value="Proses">Proses</option>
+							<option value="Tanggapi">Tanggapi</option>
+							<option value="Selesai">Selesai</option>
 						</select>
 					</div>
 
@@ -66,65 +57,117 @@
 	</div>
 </div>
 
-<?php
-//memanggil data tb_pengaduan berdasarkan tb_jenis, berdasarkan tanggal, dan berdasarkan status
-if (isset($_POST['cetak'])) {
-	$jenis = $_POST['jenis'];
-	$tgl_1 = $_POST['tgl_1'];
-	$tgl_2 = $_POST['tgl_2'];
-	$status = $_POST['status'];
-	$sql = $koneksi->query("select a.id_pengaduan, a.judul, a.alamat, a.foto, a.status, j.jenis
-from tb_pengaduan a join tb_jenis j on a.jenis=j.id_jenis where a.jenis='$jenis' and a.waktu_aduan between '$tgl_1' and '$tgl_2' and a.status='$status'");
-	$data = $sql->fetch_assoc();
-	?>
 
-	<div class="panel panel-info">
-		<div class="panel-heading">
-			<i class="glyphicon glyphicon-book"></i>
-			<b>Data Aduan</b>
-		</div>
-		<div class="panel-body">
-			<div class="table-responsive">
-				<table class="table table-striped table-bordered table-hover" id="dataTables-example">
-					<thead>
+
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<i class="glyphicon glyphicon-book"></i>
+		<b>Data Aduan</b>
+	</div>
+	<div class="panel-body">
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered table-hover" id="dataTables-example">
+				<table id="mauexport" class="text-center">
+					<thead class="text-capitalize">
 						<tr>
-							<th>No</th>
-							<th>Nama</th>
-							<th>Jenis</th>
-							<th>Alamat</th>
-							<th>Foto</th>
-							<th>status</th>
-							<th>Aksi</th>
+							<th>
+								<center>
+									No
+								</center>
+							</th>
+							<th>
+								<center>
+									Nama
+								</center>
+							</th>
+							<th>
+								<center>
+									Jenis
+								</center>
+							</th>
+							<th>
+								<center>
+									Alamat
+								</center>
+							</th>
+							<th>
+								<center>
+									Tanggal
+								</center>
+							</th>
+							<th>
+								<center>
+									Pesan
+								</center>
+							</th>
+							<th>
+								<center>
+									Foto
+								</center>
+							</th>
+							<th>
+								<center>
+									Status
+								</center>
+							</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php
 						$no = 1;
-						$sql = $koneksi->query("select a.id_pengaduan, a.judul, a.alamat, a.foto, a.status, j.jenis
-						from tb_pengaduan a join tb_jenis j on a.jenis=j.id_jenis where a.jenis='$jenis' and a.waktu_aduan between '$tgl_1' and '$tgl_2' and a.status='$status'");
+						//buat perulangan if else jika belum klik cetak maka ada text kosong jika sudah klik cetak maka akan muncul data
+						if (isset($_POST['cetak'])) {
+							$jenis = $_POST['jenis'];
+							$tgl_1 = $_POST['tgl_1'];
+							$tgl_2 = $_POST['tgl_2'];
+							$status = $_POST['status'];
+							$sql = $koneksi->query("select a.id_pengaduan, a.judul, a.alamat, a.waktu_aduan, a.keterangan, a.foto, a.status, j.jenis from tb_pengaduan a join tb_jenis j on a.jenis=j.id_jenis where a.jenis='$jenis' and a.waktu_aduan between '$tgl_1' and '$tgl_2' and a.status='$status'");
+						} else {
+							$sql = $koneksi->query("select a.id_pengaduan, a.judul, a.alamat, a.waktu_aduan, a.keterangan, a.foto, a.status, j.jenis from tb_pengaduan a join tb_jenis j on a.jenis=j.id_jenis");
+						}
 						while ($data = $sql->fetch_assoc()) {
 						?>
 							<tr>
 								<td>
-									<?php echo $no++; ?>
+									<center>
+										<?php echo $no++; ?>
+									</center>
 								</td>
 								<td>
-									<?php echo $data['judul']; ?>
+									<center>
+										<?php echo $data['judul']; ?>
+									</center>
 								</td>
 								<td>
-									<?php echo $data['jenis']; ?>
+									<center>
+										<?php echo $data['jenis']; ?>
+									</center>
 								</td>
 								<td>
-									<?php echo $data['alamat']; ?>
+									<center>
+										<?php echo $data['alamat']; ?>
+									</center>
 								</td>
 								<td>
-								<img src="foto/<?php echo $data['foto']; ?>" width="100px" onClick="window.open(this.src)" role="button" tabIndex="0" />
+									<center>
+										<?php echo $data['waktu_aduan']; ?>
+									</center>
 								</td>
 								<td>
-									<?php echo $data['status']; ?>
+									<center>
+										<!--jika text kepanjangan akan ke enter-->
+										<?php echo substr($data['keterangan'], 0, 30) . "..."; ?>
+									</center>
 								</td>
 								<td>
-									<a href="export_excel.php?kode=<?php echo $data['id_pengaduan']; ?>" class="btn btn-success" target="_blank">Export</a>
+									<center>
+										<img src="foto/<?php echo $data['foto']; ?>" width="100px" onClick="window.open(this.src)" role="button" tabIndex="0" />
+									</center>
+								</td>
+								<td>
+									<center>
+										<?php echo $data['status']; ?>
+									</center>
 								</td>
 							</tr>
 						<?php
@@ -132,9 +175,27 @@ from tb_pengaduan a join tb_jenis j on a.jenis=j.id_jenis where a.jenis='$jenis'
 						?>
 					</tbody>
 				</table>
-			</div>
+			</table>
 		</div>
 	</div>
-<?php
-}
-?>
+</div>
+
+<script>
+	$(document).ready(function() {
+		$('#mauexport').DataTable({
+			dom: 'Bfrtip',
+			buttons: [
+				'copy', 'csv', 'excel', 'pdf', 'print'
+			]
+		});
+	});
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>

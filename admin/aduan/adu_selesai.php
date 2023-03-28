@@ -62,23 +62,15 @@
                   <span class="label label-primary">Selesai</span>
               </td>
             <?php } ?>
-
             <td>
               <a href="?page=aduan_kelola&kode=<?php echo $data['id_pengaduan']; ?>" title="Tanggapi" class="btn btn-primary btn-sm">
                 <i class="glyphicon glyphicon-check"></i>
               </a>
             </td>
-
             </tr>
-
           <?php } ?>
         </tbody>
-
       </table>
-      <tr>
-      <a href="export.php?kode=<?php echo $data['id_pengaduan']; ?>" class="btn btn-success" target="_blank">Export</a>
-      </tr>
     </div>
-
   </div>
 </div>

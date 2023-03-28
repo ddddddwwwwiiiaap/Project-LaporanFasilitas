@@ -31,13 +31,14 @@ include "inc/koneksi.php";
                         <th>Alamat</th>
                         <th>Foto</th>
                         <th>status</th>
+                        <th>tanggal</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     $no = 1;
-                    $sql = $koneksi->query("select a.id_pengaduan, a.judul, a.alamat, a.foto, a.status, j.jenis
+                    $sql = $koneksi->query("select a.id_pengaduan, a.judul, a.alamat, a.foto, a.status, a.waktu_aduan, j.jenis
                     from tb_pengaduan a join tb_jenis j on a.jenis=j.id_jenis");
                     while ($data = $sql->fetch_assoc()) {
                     ?>
@@ -59,6 +60,9 @@ include "inc/koneksi.php";
                             </td>
                             <td>
                                 <?php echo $data['status']; ?>
+                            </td>
+                            <td>
+                                <?php echo $data['waktu_aduan']; ?>
                             </td>
                             <td>
                                 <a href="export_excel.php?kode=<?php echo $data['id_pengaduan']; ?>" class="btn btn-success" target="_blank">Export</a>
