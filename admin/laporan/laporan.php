@@ -156,7 +156,7 @@
 								<td>
 									<center>
 										<!--jika text kepanjangan akan ke enter-->
-										<?php echo substr($data['keterangan'], 0, 30) . "..."; ?>
+										<?php echo substr($data['keterangan'], 0, 30); ?>
 									</center>
 								</td>
 								<td>
