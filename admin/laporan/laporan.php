@@ -38,6 +38,24 @@
 						<input type="date" class="form-control" name="tgl_2" required />
 					</div>
 
+					<div class="form-group">
+						<label>Status</label>
+						<select name="status" class="form-control">
+							<option value="">- Pilih -</option>
+							<?php
+							// ambil data dari database aduan
+							$query = "select * from tb_pengaduan";
+							$hasil = mysqli_query($koneksi, $query);
+							while ($row = mysqli_fetch_array($hasil)) {
+							?>
+								<option value="<?php echo $row['status'] ?>">
+									<?php echo $row['status'];  ?>
+								</option>
+							<?php
+							}
+							?>
+						</select>
+					</div>
 
 					<div>
 						<input type="submit" name="cetak" value="Cetak" class="btn btn-primary">
@@ -49,13 +67,14 @@
 </div>
 
 <?php
-//memanggil data tb_pengaduan berdasarkan tb_jenis dan berdasarkan tanggal
+//memanggil data tb_pengaduan berdasarkan tb_jenis, berdasarkan tanggal, dan berdasarkan status
 if (isset($_POST['cetak'])) {
 	$jenis = $_POST['jenis'];
 	$tgl_1 = $_POST['tgl_1'];
 	$tgl_2 = $_POST['tgl_2'];
+	$status = $_POST['status'];
 	$sql = $koneksi->query("select a.id_pengaduan, a.judul, a.alamat, a.foto, a.status, j.jenis
-from tb_pengaduan a join tb_jenis j on a.jenis=j.id_jenis where a.jenis='$jenis' and a.waktu_aduan between '$tgl_1' and '$tgl_2'");
+from tb_pengaduan a join tb_jenis j on a.jenis=j.id_jenis where a.jenis='$jenis' and a.waktu_aduan between '$tgl_1' and '$tgl_2' and a.status='$status'");
 	$data = $sql->fetch_assoc();
 	?>
 
@@ -82,7 +101,7 @@ from tb_pengaduan a join tb_jenis j on a.jenis=j.id_jenis where a.jenis='$jenis'
 						<?php
 						$no = 1;
 						$sql = $koneksi->query("select a.id_pengaduan, a.judul, a.alamat, a.foto, a.status, j.jenis
-						from tb_pengaduan a join tb_jenis j on a.jenis=j.id_jenis where a.jenis='$jenis' and a.waktu_aduan between '$tgl_1' and '$tgl_2'");
+						from tb_pengaduan a join tb_jenis j on a.jenis=j.id_jenis where a.jenis='$jenis' and a.waktu_aduan between '$tgl_1' and '$tgl_2' and a.status='$status'");
 						while ($data = $sql->fetch_assoc()) {
 						?>
 							<tr>
