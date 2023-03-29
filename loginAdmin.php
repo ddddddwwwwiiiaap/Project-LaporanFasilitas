@@ -138,5 +138,3 @@ if (isset($_POST['btnLogin'])) {
   }
 }
 ?>
-
-<!-- END -->

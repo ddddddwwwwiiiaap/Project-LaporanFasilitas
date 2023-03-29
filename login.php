@@ -9,7 +9,7 @@ include "inc/koneksi.php";
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login</title>
+  <title>Login Admin Sistem Informasi Pengaduan Barang</title>
   <!-- BOOTSTRAP STYLES-->
   <link href="assets/css/bootstrap.css" rel="stylesheet" />
   <!-- FONTAWESOME STYLES-->
@@ -29,6 +29,7 @@ include "inc/koneksi.php";
       font-size: 1.6rem !important;
     }
   </style>
+
 </head>
 
 <body class="login">
@@ -48,21 +49,21 @@ include "inc/koneksi.php";
             </center>
             <CENTER>Sistem Informasi Laporan Fasilitas</CENTER>
             <form action="" method="POST" enctype="multipart/form-data">
-            <br />
-							<div class="form-group input-group">
-								<span class="input-group-addon">
-									<i class="fa fa-tag"></i>
-								</span>
-								<input type="text" class="form-control" placeholder="Masukkan Username " name="username" required autofocus />
-							</div>
-							<div class="form-group input-group">
-								<span class="input-group-addon">
-									<i class="fa fa-lock"></i>
-								</span>
-								<input type="password" class="form-control" placeholder="Masukkan Password" name="password" required />
-							</div>
+              <br />
+              <div class="form-group input-group">
+                <span class="input-group-addon">
+                  <i class="fa fa-tag"></i>
+                </span>
+                <input type="text" class="form-control" value="" placeholder="username" name="username" id="username" />
+              </div>
+              <div class="form-group input-group">
+                <span class="input-group-addon">
+                  <i class="fa fa-lock"></i>
+                </span>
+                <input type="password" class="form-control" value="" placeholder="password" name="password" id="password" />
+              </div>
 
-              <button type="submit" class="btn btn-primary form-control" name="btnLogin" title="Masuk Sistem" id="clicker" />MULAI PENGADUAN</button>
+              <button type="submit" class="btn btn-primary form-control" name="btnLogin" title="Masuk Sistem" id="clicker" />MASUK</button>
               <br>
               <br>
               <!-- <CENTER>Belum Punya Akun? <a href="signup">Sign Up</a></CENTER> -->
@@ -74,15 +75,18 @@ include "inc/koneksi.php";
     </div>
   </div>
 
-
-  <!-- auto login -->
   <!-- <script>
-    var button = document.getElementById("clicker");
-    setInterval(
-      function() {
-        button.click()
-      }, 4000
-    )
+    var userValue = document.getElementById("username").value;
+    var passValue = document.getElementById("password").value;
+
+    if (userValue == "pengadu" && passValue == "123") {
+      var button = document.getElementById("clicker");
+      setInterval(
+        function() {
+          button.click()
+        }, 1000
+      )
+    }
   </script> -->
 
   <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
@@ -116,9 +120,21 @@ if (isset($_POST['btnLogin'])) {
     $_SESSION["ses_level"] = $data_login["level"];
     $_SESSION["ses_grup"] = $data_login["grup"];
 
-    echo "<script>window.location = 'index';</script>";
+    echo "<script>
+                    Swal.fire({title: 'SUKSES',text: '',icon: 'success',confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.value) {
+                            window.location = 'index';
+                        }
+                    })</script>";
+  } else {
+    echo "<script>
+                    Swal.fire({title: 'GAGAL',text: '',icon: 'error',confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.value) {
+                            window.location = 'loginAdmin';
+                        }
+                    })</script>";
   }
 }
 ?>
-
-<!-- END -->

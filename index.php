@@ -21,6 +21,7 @@ include "inc/koneksi.php";
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>LAPORAN FASILITAS</title>
+	<link rel="icon" href="https://ppid.dephub.go.id/informasi_serta_merta.png" type="image/icon type">
 	<!-- BOOTSTRAP STYLES-->
 	<link href="assets/css/bootstrap.css" rel="stylesheet" />
 	<!-- FONTAWESOME STYLES-->
@@ -363,10 +364,6 @@ include "inc/koneksi.php";
 						});
 					});
 				</script>
-				<!-- CUSTOM SCRIPTS -->
-				<script src="assets/js/custom.js"></script>
-
-				<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.flash.min.js"></script>
@@ -375,6 +372,9 @@ include "inc/koneksi.php";
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
         <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
+
+				<!-- CUSTOM SCRIPTS -->
+				<script src="assets/js/custom.js"></script>
 
 </body>
 
